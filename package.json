@@ -2,7 +2,7 @@
   "name": "projetoeleicoes2024",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/LeandroPaes2/BCLP2Prova1B.git",
+  "homepage": "http://LeandroPaes2.github.io/BCLP2Prova1B",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
