@@ -18,7 +18,7 @@ export default function Candidato(props) {
             <Card.Body>
                 <Card.Title>{"candidato: " + props.candidato.nome}</Card.Title>
                 <Card.Text>
-                    <p>{"Email: " + props.candidato.email}</p>
+                    <p>{"Email: " + candidato.email}</p>
                     <p>{"Curtidas: " + curtidas}</p>
                     <p>{"Questionamentos: " + (candidato.questionamentos ? candidato.questionamentos.length : 0)}</p>
                 </Card.Text>

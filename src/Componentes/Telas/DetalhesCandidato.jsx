@@ -1,7 +1,18 @@
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Form, Table } from "react-bootstrap";
+import { useState } from "react";
 
 export default function DetalhesCandidato(props) {
     const { candidato, onBack } = props;
+    const [novoQuestion, setNovoQuestionamento] = useState("");
+    const [questionamentos, setQuestionamentos] = useState(candidato.questionamentos || []);
+
+    const Questionamento = () => {
+        if (novoQuestion.trim()) {
+            setQuestionamentos([...questionamentos, novoQuestion]);
+            setNovoQuestionamento(""); 
+        }
+    };
+
 
     return (
         <Container>
@@ -14,6 +25,36 @@ export default function DetalhesCandidato(props) {
                     <li key={index}>{proposta}</li>
                 ))}
             </ul>
+
+            <h2>Registrar Questionamento</h2>
+            <Form.Group className="mb-3">
+                <Form.Label>Digite sua dúvida:</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={novoQuestion}
+                    onChange={(e) => setNovoQuestionamento(e.target.value)}
+                />
+            </Form.Group>
+            <Button variant="primary" onClick={Questionamento}>Adicionar Questionamento</Button>
+            
+            <h2>Lista de Questionamentos</h2>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Questionamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {questionamentos.map((question, index) => (
+                        <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{question}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+
             <Button variant="secondary" onClick={onBack}>Voltar</Button>
         </Container>
     );
